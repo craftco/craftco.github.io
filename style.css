@@ -1,0 +1,107 @@
+@charset "utf-8";
+/* CSS Document */
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+    background: none;
+    border-radius: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: none;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    border-radius: 10px;
+  }
+
+body {
+	background: black; 
+	overflow-x: hidden;
+}
+#Navigation {
+	background-color: #282727; 
+    width: calc(100%);
+    height: calc(8%);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+	z-index: 3; 
+	box-shadow: 5px 5px 12.5px #282727;
+}
+#AdvancedMenu {
+	position: fixed; 
+	z-index: 4; 
+	width: calc(4%);
+	height: calc(5%); 
+	top: 1.7%; 
+	left: 0.5%;
+}
+#WelcomeMessage {
+	position: fixed; 
+	z-index: 4; 
+	width: calc(4%);
+	height: calc(5%); 
+	top: -2%; 
+	left: 5%;
+	font-size: 25px;
+	font-weight: bold;
+	color: white; 
+}
+#Welcome {
+	position: absolute;
+	top: 10%;
+	left: 3%;
+	color: whitesmoke;
+	font-weight: bold;
+	z-index: 4;
+	font-size: 50px;
+    animation: shine 5.5s infinite;
+	text-shadow: 0.5px 0.5px whitesmoke;
+}
+
+
+  @keyframes shine {
+	    0% {
+          color: violet;
+        }
+	    20% {
+          color: indigo;
+        }
+	    30% {
+          color: blue;
+        }
+	    40% {
+          color: green;
+        }
+	    50% {
+          color: yellow;
+        }
+	    60% {
+          color: orange;
+        }
+	    70% {
+          color: red;
+        }
+	    80% {
+          color: aqua;
+        }
+	   90% {
+          color: darkviolet;
+        }
+	   
+	    100% {
+          color: orangered;
+        }
+	    
+        }
