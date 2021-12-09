@@ -9,6 +9,7 @@
 <script src="https://threejs.org/examples/js/libs/tween.min.js"></script>
 <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 </head>
@@ -22,13 +23,14 @@
 <audio id="StartMusic" src="IntroMusic.mp3" type="audio/mp3"> </audio>
 
 <div id="Navigation"> </div>
-<img id="AdvancedMenu" src="AdvancedMenu.png" width="500px" height="300px" alt="erRor">
+<img id="AdvancedMenu" src="AdvancedMenu.png" width="500px" height="300px" alt="erRor" onClick="entercode()">
+<img id="Light" src="Light.jfif" width="300px" height="150px" alt="erRor" onClick="entercode()">
 	
 
 
  
 <script>
-let scene, camera, renderer, skyboxGeo, skybox, material, cubematerials, controls; //Sets ThreeJs Variables 
+let scene, camera, renderer, skyboxGeo, skybox, material, cubematerials; //Sets ThreeJs Variables 
 
 function Loaded() {
 InitializeThreeJs(); 
@@ -40,27 +42,20 @@ IntroText();
 function InitializeThreeJs() {
 scene = new THREE.Scene(); 
  camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 45, 30000); 
-  camera.position.set(-9999, -300, 20000); 
-  controls = new OrbitControls( camera, renderer.domElement ); 
-  controls.update(); 
+  camera.position.set(0, -300, 20000); 
    renderer = new THREE.WebGLRenderer({ antialias: true }); 
     renderer.setSize(window.innerWidth, window.innerHeight); 
-     document.body.appendChild(renderer.domElement); 
+	 document.body.appendChild(renderer.domElement); 
       renderer.domElement.id = "canvas"; 
 	   AddCube(); 
 	    Animate(); 
 }
 
-
-	
-	
 function Animate() {
 renderer.render(scene, camera); 
  skybox.rotation.x += 0.005; 
   skybox.rotation.y += 0.005;
    requestAnimationFrame(Animate); 
-    controls.update(); 
-     
 }
 
 //Creates And Adds The Cube
@@ -74,7 +69,7 @@ new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Crate.jpg"), 
 new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Crate.jpg"), side: THREE.DoubleSide}) 
 ]; 
 material = new THREE.MeshFaceMaterial(cubematerials);  
-skyboxGeo = new THREE.BoxGeometry(8000, 8000, 8000); 
+skyboxGeo = new THREE.BoxGeometry(10000, 10000, 10000); 
 skybox = new THREE.Mesh(skyboxGeo, material); 
 scene.add(skybox); 
 }
@@ -129,6 +124,18 @@ requestAnimationFrame(Timer); }
 setTimeout(Timer, 4000); 
 setTimeout(function(){$("#WelcomeMessage").fadeOut(1000);}, 3000); 
 setTimeout(function(){$("#WelcomeMessage").fadeIn(1000);}, 4000); 
+
+function entercode() { 
+	swal({
+ title: "Enter Code",  
+  content: {
+    element: "input",
+    attributes: {
+      placeholder: "Enter The Code In Your Box"
+    },
+  },
+})
+}
 </script>
 </body>
 </html>
