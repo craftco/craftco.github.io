@@ -43,12 +43,12 @@ scene = new THREE.Scene();
   camera.position.set(-9999, -300, 20000); 
    renderer = new THREE.WebGLRenderer({ antialias: true }); 
     renderer.setSize(window.innerWidth, window.innerHeight); 
-	 document.body.appendChild(renderer.domElement); 
+     document.body.appendChild(renderer.domElement); 
       renderer.domElement.id = "canvas"; 
 	   AddCube(); 
 	    Animate(); 
 }
-
+   const controls = new OrbitControls( camera, renderer.domElement );
 function Animate() {
 renderer.render(scene, camera); 
  skybox.rotation.x += 0.005; 
