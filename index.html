@@ -48,13 +48,17 @@ scene = new THREE.Scene();
 	   AddCube(); 
 	    Animate(); 
 }
-   const controls = new OrbitControls( camera, renderer.domElement );
+
+const controls = new OrbitControls( camera, renderer.domElement );
+	
+	
 function Animate() {
 renderer.render(scene, camera); 
  skybox.rotation.x += 0.005; 
   skybox.rotation.y += 0.005;
    requestAnimationFrame(Animate); 
-	skybox.draggable = true; 
+    controls.update(); 
+     
 }
 
 //Creates And Adds The Cube
