@@ -28,7 +28,7 @@
 
  
 <script>
-let scene, camera, renderer, skyboxGeo, skybox, material, cubematerials; //Sets ThreeJs Variables 
+let scene, camera, renderer, skyboxGeo, skybox, material, cubematerials, controls; //Sets ThreeJs Variables 
 
 function Loaded() {
 InitializeThreeJs(); 
@@ -41,6 +41,8 @@ function InitializeThreeJs() {
 scene = new THREE.Scene(); 
  camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 45, 30000); 
   camera.position.set(-9999, -300, 20000); 
+  controls = new OrbitControls( camera, renderer.domElement ); 
+  controls.update(); 
    renderer = new THREE.WebGLRenderer({ antialias: true }); 
     renderer.setSize(window.innerWidth, window.innerHeight); 
      document.body.appendChild(renderer.domElement); 
@@ -49,7 +51,7 @@ scene = new THREE.Scene();
 	    Animate(); 
 }
 
-const controls = new OrbitControls( camera, renderer.domElement );
+
 	
 	
 function Animate() {
