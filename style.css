@@ -30,12 +30,12 @@ body {
 	overflow-x: hidden;
 }
 #Light {
-	position: fixed;
+	position: absolute;
 	width: 100%;
 	height: 100%;
-	top: 0%;
+	top: 100%;
 	left: 0%; 
-	z-index: 3; 
+	z-index: 0; 
 }
 #Navigation {
 	background-color: #282727; 
@@ -58,8 +58,6 @@ body {
 #WelcomeMessage {
 	position: fixed; 
 	z-index: 15; 
-	width: calc(4%);
-	height: calc(5%); 
 	top: -2%; 
 	left: 5%;
 	font-size: 25px;
@@ -69,7 +67,7 @@ body {
 #Welcome {
 	position: absolute;
 	top: 80%;
-	left: 22%;
+	left: 23%;
 	color: whitesmoke;
 	font-weight: bold;
 	z-index: 4;
@@ -113,3 +111,27 @@ body {
         }
 	    
         }
+        
+        #Menu {
+          position: fixed; 
+          z-index: 30;
+          width: 20%; 
+          height: 50%;
+          left: -30%; 
+          top: 8%; 
+          background: #282727;
+          border-bottom-right-radius: 25px;
+        }
+          #Code {
+            position: relative; 
+            left: 40%; 
+          }
+          #preorder {
+            position: fixed;
+            height: 70%; 
+            width: 50%;
+            border-radius: 25px;
+            left: 25%; 
+            top: 20%;
+            z-index: 20;
+          }
