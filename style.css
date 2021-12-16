@@ -30,10 +30,10 @@ body {
 	overflow-x: hidden;
 }
 #Light {
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	height: 100%;
-	top: 100%;
+	top: 0%;
 	left: 0%; 
 	z-index: 0; 
 }
@@ -64,18 +64,6 @@ body {
 	font-weight: bold;
 	color: white; 
 }
-#Welcome {
-	position: absolute;
-	top: 80%;
-	left: 23%;
-	color: whitesmoke;
-	font-weight: bold;
-	z-index: 4;
-	font-size: 50px;
-    animation: shine 60s infinite;
-	text-shadow: 0.5px 0.5px whitesmoke;
-}
-
 
   @keyframes shine {
 	    0% {
@@ -127,11 +115,36 @@ body {
             left: 40%; 
           }
           #preorder {
-            position: fixed;
+            position: absolute;
             height: 70%; 
             width: 50%;
             border-radius: 25px;
             left: 25%; 
-            top: 20%;
-            z-index: 20;
+            top: 150%;
+            z-index: 25;
+            display: none; 
           }
+          
+          #Welcome {
+            position: absolute; 
+            z-index: 2; 
+            border: none; 
+            border-radius: 50px; 
+            color: whitesmoke;
+            font-size: calc(35px);
+            font-weight: bold;
+            font-variant-caps: all-petite-caps;
+            left: 22%; 
+            top: 80%; 
+            background-color: #2363FF;
+            width: calc(60%);
+            height: calc(8%); 
+            text-align: center;
+            cursor: pointer;
+          }
+          #canvas {
+            position: absolute; 
+            top: 0%; 
+            left: 0%;
+          }
+          
