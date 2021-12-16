@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="style.css">
-<link rel="shortcut icon" href="Crate.jpg" type="image/x-icon"/>
+<link rel="shortcut icon" href="CraftCoLogo.png" type="image/x-icon"/>
 <title> Jump Into A World Of Creativity </title>
 <script src="https://threejs.org/build/three.min.js"></script>
 <script src="https://threejs.org/examples/js/libs/tween.min.js"></script>
@@ -40,20 +40,22 @@ var MenuAnimate = true;
 function Loaded() {
 InitializeThreeJs(); 
 IntroText();
+$("#preorder").fadeIn(1000); 
 //Enable Intro Text 
 }
 	
 //Creates A Basic Three.js Scene 
 function InitializeThreeJs() {
 scene = new THREE.Scene(); 
+scene.background = new THREE.TextureLoader().load("Light.jfif")
  camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 45, 30000); 
   camera.position.set(0,-1000, 20000); 
    renderer = new THREE.WebGLRenderer({ antialias: true }); 
     renderer.setSize(window.innerWidth, window.innerHeight); 
-	 document.body.appendChild(renderer.domElement); 
+	   document.body.appendChild(renderer.domElement); 
       renderer.domElement.id = "canvas"; 
-	   AddCube(); 
-	    Animate(); 
+	     AddCube(); 
+	      Animate(); 
 }
 
 function Animate() {
@@ -74,7 +76,7 @@ new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Crate.jpg"), 
 new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Crate.jpg"), side: THREE.DoubleSide}) 
 ]; 
 material = new THREE.MeshFaceMaterial(cubematerials);  
-skyboxGeo = new THREE.BoxGeometry(9500, 9500, 9500); 
+skyboxGeo = new THREE.BoxGeometry(9000, 9000, 9000); 
 skybox = new THREE.Mesh(skyboxGeo, material); 
 scene.add(skybox); 
 }
