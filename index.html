@@ -43,8 +43,8 @@ $("#preorder").fadeIn(1000);
 }
 	
 //Creates A Basic Three.js Scene 
-function InitializeThreeJs() {
 var LoggedIn = localStorage.getItem("LoggedIn"); 
+function InitializeThreeJs() {
 if (LoggedIn === "true") {
   document.getElementById("Code").innerHTML = "&#9989 Logged In";
 }
@@ -136,7 +136,7 @@ setTimeout(function(){$("#WelcomeMessage").fadeIn(1000);}, 4000);
 
 function entercode() { 
 if (LoggedIn === "true") {
-window.alert("True"); 
+
 }
 	else { swal({
  title: "Enter Code",  
