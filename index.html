@@ -17,7 +17,7 @@
 <body onLoad="Loaded()">
 
 <div id="Menu">
-<button id="Code" onclick="entercode()"> Code </button> 
+<button id="Code" onclick="entercode()"> &#9940 Login </button> 
 
 
 </div>
@@ -29,9 +29,7 @@
 
 <div id="Navigation"> </div>
 <img id="AdvancedMenu" src="AdvancedMenu.png" width="500px" height="300px" alt="erRor" onClick="Menu()">
-<img id="Light" src="Light.jfif" width="300px" height="150px" alt="erRor">
-	
-<iframe id="preorder" width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=SjyUWVNiDU2KmP71AwPTS6r9qI34I_tHvmJEP_1AtgBUQU8wVkNHVFRWUUozUlJHTjZNSEFGTldQSi4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+
  
 <script>
 let scene, camera, renderer, skyboxGeo, skybox, material, cubematerials; //Sets ThreeJs Variables 
@@ -46,6 +44,10 @@ $("#preorder").fadeIn(1000);
 	
 //Creates A Basic Three.js Scene 
 function InitializeThreeJs() {
+var LoggedIn = localStorage.getItem("LoggedIn"); 
+if (LoggedIn === "true") {
+  document.getElementById("Code").innerHTML = "&#9989 Logged In";
+}
 scene = new THREE.Scene(); 
 scene.background = new THREE.TextureLoader().load("Light.jfif")
  camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 45, 30000); 
@@ -133,8 +135,12 @@ setTimeout(function(){$("#WelcomeMessage").fadeOut(1000);}, 3000);
 setTimeout(function(){$("#WelcomeMessage").fadeIn(1000);}, 4000); 
 
 function entercode() { 
-	swal({
+if (LoggedIn === "true") {
+window.alert("True"); 
+}
+	else { swal({
  title: "Enter Code",  
+ closeOnEsc: false,
   content: {
     element: "input",
     attributes: {
@@ -148,6 +154,8 @@ if (value === VaildPassword) {
      text: "Access Granted", 
       icon: "success"
   }); 
+  localStorage.setItem("LoggedIn", "true") 
+  location.reload(); 
 }
 else {
   if (value === null) {
@@ -160,8 +168,8 @@ else {
       icon: "error"
   }); 
 } }
-})
-}
+}) }
+} 
 
 function Menu() {
   if (MenuAnimate) {
@@ -172,7 +180,7 @@ function Menu() {
   $("#Menu").animate({left: "-30%"});
   MenuAnimate = true;
   }
-}
+} 
 
 </script>
 </body>
